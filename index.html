@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designer Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #fff;
+  color: #171717;
+  font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+header {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+nav { display: flex; gap: 30px; font-size: 12px; }
+nav a { color: #666; }
+nav a:hover { color: #000; }
+
+.hero {
+  padding: 145px 10% 125px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #888;
+  margin-bottom: 35px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 8vw, 105px);
+  line-height: 1.05;
+  letter-spacing: -6px;
+  font-weight: 600;
+}
+
+.hero h1 span { color: #999; }
+
+.hero-bottom {
+  margin-top: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+
+.intro {
+  font-size: 15px;
+  line-height: 2;
+  color: #666;
+}
+
+.scroll {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+section { padding: 90px 10%; }
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.section-top h2 {
+  font-size: 32px;
+  letter-spacing: -1.5px;
+}
+
+.section-top p {
+  color: #888;
+  font-size: 12px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px 25px;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .4s;
+}
+
+.project:hover .project-image { transform: translateY(-5px); }
+
+.project-image span {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: rgba(0,0,0,.7);
+}
+
+.project:nth-child(1) .project-image { background: #dce4df; }
+.project:nth-child(2) .project-image { background: #e8e4dc; }
+.project:nth-child(3) .project-image { background: #dedee8; }
+.project:nth-child(4) .project-image { background: #e9e0dc; }
+.project:nth-child(5) .project-image { background: #e4e7ed; }
+.project:nth-child(6) .project-image { background: #e7e5d9; }
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+  gap: 10px;
+}
+
+.project-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.project-info p {
+  font-size: 11px;
+  color: #999;
+  margin-top: 7px;
+}
+
+.number {
+  font-size: 12px;
+  color: #999;
+}
+
+.about {
+  background: #f6f6f4;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+
+.about-title {
+  font-size: 38px;
+  line-height: 1.35;
+  letter-spacing: -2px;
+}
+
+.about-text {
+  color: #666;
+  font-size: 14px;
+  line-height: 2.1;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.skills span {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 9px 15px;
+  font-size: 11px;
+}
+
+.contact {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.contact h2 {
+  font-size: clamp(40px, 7vw, 80px);
+  letter-spacing: -4px;
+  line-height: 1.2;
+  margin-bottom: 35px;
+}
+
+.contact p {
+  font-size: 14px;
+  color: #777;
+  line-height: 2;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 30px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #222;
+  font-size: 14px;
+}
+
+footer {
+  padding: 25px 7%;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #999;
+}
+
+@media (max-width: 650px) {
+  header { padding: 0 6%; }
+  nav { gap: 13px; font-size: 10px; }
+  .hero { padding: 100px 7% 90px; }
+  .hero h1 { letter-spacing: -3px; }
+  .hero-bottom { align-items: start; flex-direction: column; }
+  section { padding: 70px 7%; }
+  .projects { grid-template-columns: 1fr; gap: 38px; }
+  .about-content { grid-template-columns: 1fr; gap: 30px; }
+  .about-title { font-size: 30px; }
+  .section-top h2 { font-size: 27px; }
+  .contact h2 { letter-spacing: -2px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">DESIGNER.</a>
+  <nav>
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="eyebrow">PORTFOLIO · 2026</p>
+    <h1>Creative<br><span>Designer.</span></h1>
+
+    <div class="hero-bottom">
+      <p class="intro">
+        다양한 경험을 바탕으로 새로운 가능성을 탐색하는 디자이너입니다.<br>
+        기획부터 결과물까지, 더 나은 시각적 경험을 만듭니다.
+      </p>
+      <p class="scroll">SCROLL TO EXPLORE ↓</p>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="section-top">
+      <h2>Selected Works</h2>
+      <p>2022 — 2026</p>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-image"><span>WEB / UI</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Web & UI/UX Design</h3>
+            <p>UI/UX · Web Design</p>
+          </div>
+          <span class="number">01</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><span>BRANDING</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Brand Identity</h3>
+            <p>Branding · Visual Identity</p>
+          </div>
+          <span class="number">02</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><span>GRAPHIC</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Graphic Design</h3>
+            <p>Poster · Campaign</p>
+          </div>
+          <span class="number">03</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><span>EDITORIAL</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Editorial Design</h3>
+            <p>Publication · Print</p>
+          </div>
+          <span class="number">04</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><span>DIGITAL</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Digital Contents</h3>
+            <p>Contents · Social Media</p>
+          </div>
+          <span class="number">05</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><span>ETC.</span></div>
+        <div class="project-info">
+          <div>
+            <h3>Other Projects</h3>
+            <p>Various Design Works</p>
+          </div>
+          <span class="number">06</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="section-top">
+      <h2>About Me</h2>
+      <p>INTRODUCTION</p>
+    </div>
+
+    <div class="about-content">
+      <h3 class="about-title">
+        Design is not just<br>
+        about how it looks,<br>
+        but how it works.
+      </h3>
+
+      <div>
+        <p class="about-text">
+          다양한 디자인 분야를 경험하며 시각적 표현과
+          사용자 경험에 대해 고민해 왔습니다.
+          새로운 환경과 도구에 빠르게 적응하고,
+          필요한 역량을 스스로 학습하며 성장합니다.
+          <br><br>
+          기획의 의도를 이해하고 일관된 디자인으로
+          완성도 높은 결과물을 만드는 것을 중요하게 생각합니다.
+        </p>
+
+        <div class="skills">
+          <span>Photoshop</span>
+          <span>Illustrator</span>
+          <span>Figma</span>
+          <span>HTML / CSS</span>
+          <span>Premiere Pro</span>
+          <span>UI/UX</span>
+          <span>Editorial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="eyebrow">GET IN TOUCH</p>
+    <h2>Let's create<br>something new.</h2>
+    <p>새로운 기회와 다양한 협업을 기다립니다.</p>
+    <a href="mailto:your-email@example.com">CONTACT ME ↗</a>
+  </section>
+</main>
+
+<footer>
+  <span>DESIGNER PORTFOLIO</span>
+  <span>© 2026 ALL RIGHTS RESERVED.</span>
+</footer>
+
+</body>
+</html>
